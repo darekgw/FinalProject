@@ -10,6 +10,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-summary
+Podsumowanie
+</br>
+Twój wynik to: ${pointsScored}
+</br>
+<a href="<c:url value='/start'/>">sprobój ponownie</a>
+
+
 </body>
 </html>

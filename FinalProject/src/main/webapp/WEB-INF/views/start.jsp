@@ -10,6 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-hej
+Witaj na stronie quizu!
+</br>
+<a href="<c:url value='/question'/>">Rozpocznij quiz</a>
 </body>
 </html>

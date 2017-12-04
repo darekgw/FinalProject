@@ -27,9 +27,6 @@ ${question.answer2}
 ${question.answer3}
 <input type="radio" name="answer" value="${question.answer3}">
 </br>
-${question.answer4}
-<input type="radio" name="answer" value="${question.answer4}">
-</br>
 <input	type="submit"	value="Save">
 </form>
 

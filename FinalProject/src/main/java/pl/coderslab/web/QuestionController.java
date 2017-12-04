@@ -1,5 +1,7 @@
 package pl.coderslab.web;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -34,24 +36,34 @@ public class QuestionController {
 	@Autowired
 	Validator validator;
 	
-	List<Question> questions;
 	private long noOfQuestions;
+	private long noOfQuestionsInBase;
 	private int questionNo;
 	private int pointsScored;
-	
+	private List<Integer> idList;
+	private List<Question> askedQuestions;
+	private List<String> answers;
 	
 	@RequestMapping("/start")
 	public String startQuiz() {
+		noOfQuestions = 20;
+		noOfQuestionsInBase = questionRepository.count();
+		if (noOfQuestions > noOfQuestionsInBase) {
+			noOfQuestions = noOfQuestionsInBase;
+		}	
+		askedQuestions = new ArrayList<>();
+		answers = new ArrayList<>();
 		questionNo = 0;
 		pointsScored = 0;
-		questions = questionRepository.findAll();
-		noOfQuestions = questions.size();
+		idList = questionRepository.idList();
+		Collections.shuffle(idList);	
+		
 		return "start";
 	}
 	
 	@GetMapping("/question")
 	public String askQuestion(Model model) {
-		Question question = questions.get(questionNo);
+		Question question = questionRepository.findOne(idList.get(questionNo));
 		model.addAttribute("question", question);
 		noOfQuestions--;
 		return "question";
@@ -60,11 +72,11 @@ public class QuestionController {
 	@PostMapping("/question")
 	public String takeAnswer(Model model, @RequestParam int id, @RequestParam String answer) {
 		Question question = questionRepository.findOne(id);
-//		model.addAttribute("question", question);
-//		model.addAttribute("answer", answer);
+		askedQuestions.add(question);
+		answers.add(answer);
 		
 		if(answer.equals(question.getRightAnswer())) {
-			pointsScored = pointsScored + question.getDifficulty();
+			pointsScored++;
 		} else {
 			pointsScored--;
 		}
@@ -75,6 +87,9 @@ public class QuestionController {
 			return "redirect:/question";
 		}
 		
+		model.addAttribute("questionNo", questionNo);
+		model.addAttribute("askedQuestions", askedQuestions);
+		model.addAttribute("answers", answers);
 		model.addAttribute("pointsScored", pointsScored);
 		
 		return "summary";

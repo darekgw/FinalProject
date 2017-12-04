@@ -21,22 +21,22 @@
 		<tr>
 			<th>id</th>
 			<th>difficulty</th>
+			<th>category</th>
 			<th>question</th>
 			<th>answer1</th>
 			<th>answer2</th>
 			<th>answer3</th>
-			<th>answer4</th>
 			<th>rightAnswer</th>
 		</tr>
 		<c:forEach items="${questions}" var="question">
 			<tr>
 				<td>${question.id}</td>
 				<td>${question.difficulty}</td>
+				<td>${question.category}
 				<td>${question.quest}</td>
 				<td>${question.answer1}</td>
 				<td>${question.answer2}</td>
 				<td>${question.answer3}</td>
-				<td>${question.answer4}</td>
 				<td>${question.rightAnswer}</td>
 			</tr>
 			<tr>

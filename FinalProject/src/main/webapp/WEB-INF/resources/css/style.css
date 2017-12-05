@@ -1,11 +1,25 @@
+#parentTable {
+	
+        
+}
+
 #table1 {
-	float:left;
+	float:right;
 }
 
 #table2 {
-	float:left;
+	float:right;
+    
 }
 
 .points {
 	color: red;
+}
+
+.nav-item {
+	color: white;
+}
+
+.radio {
+	font-size:30px;
 }

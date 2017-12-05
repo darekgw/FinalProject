@@ -11,12 +11,39 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	crossorigin="anonymous">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>">
 <title>Insert title here</title>
+<style>
+
+</style>
 </head>
 <body>
 
-<div class="jumbotron"><h1 >Witaj na stronie quizu!</h1></div>
+<nav class="navbar navbar-expand-sm">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <h2 class="nav-item"></h2>
+    </li>
+  </ul>
+</nav>
 </br>
-<a href="<c:url value='/question'/>">Rozpocznij quiz</a>
+</br>
+
+<div class="jumbotron">
+<h1 >Witaj na stronie testu wiedzy języka Java!</h1>
+</br>
+<p>Rozwiązanie testu pomoże Ci odpowiedzieć na pytanie, czy jesteś już gotowy na rozpoczęcie
+swojej wymażonej pracy na stanowisku Junior Java Developera.</p>
+<p>Przed Tobą ${noOfQuestions} pytań jednokrotnego wyboru. Za każde pytnie możesz otrzymać 1 punkt.
+ Pamiętaj, że błędna odpowiedź lub brak odpowiedzi to punkt ujemny.</p>
+ <p>Gotowy? To zaczynamy!</p>
+ <center>
+ </br>
+ <div ><a type="button" class="btn btn-primary btn-lg" href="<c:url value='/question'/>">ROZPOCZNIJ TEST</a></div>
+ </center>
+</div>
+</br>
+
 </body>
 </html>

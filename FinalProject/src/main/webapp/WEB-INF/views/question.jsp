@@ -8,28 +8,48 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>">
 <title>Insert title here</title>
 </head>
 <body>
-Odpowiedz na pytanie:
-</br>
-${question.quest}
-</br>
 
-<form	method="post">
+<center>
+</br>
+<h1>Test wiedzy - Junior Java Developer</h1>
+</br>
+<h3>Pytanie ${questionNo + 1}</h3>
+</br>
+</br>
+<h3>${question.quest}</h3>
+</br>
+</br>
+</center>
+<div class="row">
+  <div class="col-xl-3"></div>
+  <div class="col-xl-6 form">
+  
+
+<form method="post">
 <input type="hidden" name="id" value="${question.id}">
-${question.answer1}
-<input type="radio" name="answer" value="${question.answer1}">
+<label><input type="radio" name="answer" value="${question.answer1}"><span style="font-size:30px"> ${question.answer1}</span></label>
 </br>
-${question.answer2}
-<input type="radio" name="answer" value="${question.answer2}">
+<label><input type="radio" name="answer" value="${question.answer2}"><span style="font-size:30px"> ${question.answer2}</span></label>
 </br>
-${question.answer3}
-<input type="radio" name="answer" value="${question.answer3}">
+<label><input type="radio" name="answer" value="${question.answer3}"><span style="font-size:30px"> ${question.answer3}</span></label>
 </br>
-<input	type="submit"	value="Save">
+</br>
+<center>
+<input	type="submit"	value="Następne pytanie">
+</center>
 </form>
-
+</div>
+<div class="class="col-xl-3""></div>
+</div>
 
 </body>
 </html>

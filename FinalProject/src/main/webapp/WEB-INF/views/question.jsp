@@ -20,14 +20,16 @@
 
 <center>
 </br>
-<h1>Test wiedzy - Junior Java Developer</h1>
+<h1><b>Test wiedzy - Junior Java Developer</b></h1>
 </br>
-<h3>Pytanie ${questionNo + 1}</h3>
+<h3><b>Pytanie ${questionNo + 1}</b></h3>
 </br>
+<h3><b>Kategoria: ${question.category}</b></h3>
 </br>
-<h3>${question.quest}</h3>
+
+<h3><b>${question.quest}</b></h3>
 </br>
-</br>
+
 </center>
 <div class="row">
   <div class="col-xl-3"></div>
@@ -36,11 +38,14 @@
 
 <form method="post">
 <input type="hidden" name="id" value="${question.id}">
-<label><input type="radio" name="answer" value="${question.answer1}"><span style="font-size:30px"> ${question.answer1}</span></label>
+<label><input type="radio" name="answer" value="${question.answer1}">
+<span style="font-size:28px"> ${question.answer1}</span></label>
 </br>
-<label><input type="radio" name="answer" value="${question.answer2}"><span style="font-size:30px"> ${question.answer2}</span></label>
+<label><input type="radio" name="answer" value="${question.answer2}">
+<span style="font-size:28px"> ${question.answer2}</span></label>
 </br>
-<label><input type="radio" name="answer" value="${question.answer3}"><span style="font-size:30px"> ${question.answer3}</span></label>
+<label><input type="radio" name="answer" value="${question.answer3}">
+<span style="font-size:28px"> ${question.answer3}</span></label>
 </br>
 </br>
 <center>

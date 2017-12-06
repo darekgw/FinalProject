@@ -20,11 +20,6 @@ public class Question {
 	private int id;
 	
 	@NotNull
-	@Min(value = 1)
-	@Max(value = 1)
-	private int difficulty;
-	
-	@NotNull
 	private String category;
 	
     @NotNull
@@ -32,22 +27,25 @@ public class Question {
 	private String quest;
 	
 	@NotNull
+	@Column(columnDefinition = "TEXT")
 	private String answer1;
 	
 	@NotNull
+	@Column(columnDefinition = "TEXT")
 	private String answer2;
 	
 	@NotNull
+	@Column(columnDefinition = "TEXT")
 	private String answer3;
 	
 	@NotNull
+	@Column(columnDefinition = "TEXT")
 	private String rightAnswer;
 	
 	public Question() {}
 
-	public Question(int difficulty, String category, String quest, String answer1, String answer2, String answer3,
+	public Question(String category, String quest, String answer1, String answer2, String answer3,
 			String rightAnswer) {
-		this.difficulty = difficulty;
 		this.quest = quest;
 		this.answer1 = answer1;
 		this.answer2 = answer2;
@@ -69,14 +67,6 @@ public class Question {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getDifficulty() {
-		return difficulty;
-	}
-
-	public void setDifficulty(int difficulty) {
-		this.difficulty = difficulty;
 	}
 
 	public String getQuest() {

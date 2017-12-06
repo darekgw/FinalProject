@@ -44,42 +44,47 @@ public class QuestionController {
 	private int questionNo;
 	private int pointsScored;
 	private List<Integer> idList;
-	//private List<Question> askedQuestions;
-	//private List<String> answers;
 
+	
 	@RequestMapping("/start")
 	public String startQuiz(Model model, HttpServletRequest request, HttpServletResponse response) {
+		
 		HttpSession sess = request.getSession();
-		//sess.invalidate();
 		sess.removeAttribute("askedQuestions");
 		sess.removeAttribute("answers");
-		noOfQuestions = 4 ;
+		
+		noOfQuestions = 20 ;
 		noOfQuestionsInBase = questionRepository.count();
 		if (noOfQuestions > noOfQuestionsInBase) {
 			noOfQuestions = noOfQuestionsInBase;
 		}	
 		sess.setAttribute("noOfQuestions", noOfQuestions);
-	//	askedQuestions = null;
-	//	answers = null ;
+	
 		questionNo = 0;
 		sess.setAttribute("questionNo", questionNo);
+		
 		pointsScored = 0;
+		sess.setAttribute("pointsScored", pointsScored);
+		
 		idList = questionRepository.idList();
 		Collections.shuffle(idList);	
-
-		//model.addAttribute("noOfQuestions", noOfQuestions);
 		
 		return "start";
 	}
 
+	
 	@GetMapping("/question")
 	public String askQuestion(Model model, HttpServletRequest request, HttpServletResponse response) {
+		
 		HttpSession sess = request.getSession();
+		
 		questionNo = (int) sess.getAttribute("questionNo");
+		
 		Question question = questionRepository.findOne(idList.get(questionNo));
 		model.addAttribute("question", question);
+		
 		sess.setAttribute("questionNo", questionNo);
-		//noOfQuestions--;
+		
 		return "question";
 	}
 	
@@ -103,7 +108,7 @@ public class QuestionController {
 		if (askedQuestions == null) {
 			askedQuestions = new ArrayList<>();
 		}
-			
+		
 			askedQuestions.add(question);
 		
 		List <String> answers = (List<String>) sess.getAttribute("answers");
@@ -117,6 +122,8 @@ public class QuestionController {
 			
 			answers.add(answer);	
 		
+			pointsScored = (int) sess.getAttribute("pointsScored");
+			
 		if(answer.equals(question.getRightAnswer())) {
 			pointsScored++;
 		} else {
@@ -125,22 +132,19 @@ public class QuestionController {
 		
 //		List<QuizEntry> l;
 		
-		
 		questionNo = (int) sess.getAttribute("questionNo") +1;
 		sess.setAttribute("questionNo", questionNo);
 
 		sess.setAttribute("askedQuestions", askedQuestions);
 		sess.setAttribute("answers", answers);
+		sess.setAttribute("pointsScored", pointsScored);
 		
 		if (noOfQuestions >0) {
 			return "redirect:/question";
 		}
 
-		double percent = ((double)pointsScored/questionNo)*100;
-		
-		
-		//model.addAttribute("questionNo", questionNo);
-		model.addAttribute("pointsScored", pointsScored);
+		double percent = Math.round((((double)pointsScored/questionNo)*100)*100)/100;;	
+//		Math.round((((double)pointsScored/questionNo)*100)*100)/100;
 		model.addAttribute("percent", percent);
 
 		return "summary";
@@ -175,22 +179,6 @@ public class QuestionController {
 		questionRepository.delete(question);
 		return "redirect:/question/list";
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

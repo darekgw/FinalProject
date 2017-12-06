@@ -31,13 +31,14 @@
 </br>
 
 <div class="jumbotron">
-<h1 >Witaj na stronie testu wiedzy języka Java!</h1>
+<h1 ><b>Witaj na stronie testu wiedzy języka Java!</b></h1>
 </br>
-<p>Rozwiązanie testu pomoże Ci odpowiedzieć na pytanie, czy jesteś już gotowy na rozpoczęcie
-swojej wymażonej pracy na stanowisku Junior Java Developera.</p>
-<p>Przed Tobą ${noOfQuestions} pytań jednokrotnego wyboru. Za każde pytnie możesz otrzymać 1 punkt.
- Pamiętaj, że błędna odpowiedź lub brak odpowiedzi to punkt ujemny.</p>
- <p>Gotowy? To zaczynamy!</p>
+</br>
+<h5>Rozwiązanie testu pomoże Ci odpowiedzieć na pytanie, czy jesteś już gotowy na rozpoczęcie
+swojej wymażonej pracy na stanowisku Junior Java Developera.</h5>
+<h5>Przed Tobą ${noOfQuestions} pytań jednokrotnego wyboru. Za każde pytnie możesz otrzymać 1 punkt.
+ Pamiętaj, że błędna odpowiedź lub brak odpowiedzi to punkt ujemny.</h5>
+ <h5>Gotowy? To zaczynamy!</h5>
  <center>
  </br>
  <div ><a type="button" class="btn btn-primary btn-lg" href="<c:url value='/question'/>">ROZPOCZNIJ TEST</a></div>

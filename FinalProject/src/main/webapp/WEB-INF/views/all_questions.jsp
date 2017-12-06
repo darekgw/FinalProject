@@ -20,7 +20,6 @@
 	<table class="table table-bordered">
 		<tr>
 			<th>id</th>
-			<th>difficulty</th>
 			<th>category</th>
 			<th>question</th>
 			<th>answer1</th>
@@ -31,7 +30,6 @@
 		<c:forEach items="${questions}" var="question">
 			<tr>
 				<td>${question.id}</td>
-				<td>${question.difficulty}</td>
 				<td>${question.category}
 				<td>${question.quest}</td>
 				<td>${question.answer1}</td>

@@ -1,19 +1,10 @@
-#parentTable {
-	
-        
-}
-
-#table1 {
-	float:right;
-}
-
-#table2 {
-	float:right;
-    
+.bigger {
+	font-size: 20px;
 }
 
 .points {
 	color: red;
+	font-weight: bold;
 }
 
 .nav-item {
@@ -22,4 +13,8 @@
 
 .radio {
 	font-size:30px;
+}
+
+.bgColor {
+    background-color: LightSkyBlue;
 }

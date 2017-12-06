@@ -8,61 +8,68 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>">
+ 
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container">
 <center>
-	Podsumowanie
-	</br> <b class="points">Twój wynik to: ${pointsScored} na ${questionNo} możliwych</b><b>, co daje </b>
-	<b>${percent}</b><b>%</b>
+</br> 
+</br>
+	<h1><b>Podsumowanie</b></h1>
+	</br> 
+	<h2><span class="points">Twój wynik to: ${pointsScored} z ${questionNo}</span><span>, co daje </span>
+	<span>${percent}</span><span>%</span></h2>
 	</br>
-	
+	</br>
+	<div class="bigger">
 	<c:set var="percent" value="${percent}"/>
 	<c:choose>
-	<c:when test="${percent > 70}">Brawo</c:when>
-	<c:when test="${percent >= 50}">Średnio</c:when>
-	<c:otherwise>Słabo</c:otherwise>
+	<c:when test="${percent >= 75}">
+	<h4>Brawo! Osiągnąłeś doskonały wynik!
+	Najwyższy czas na sprawdzenie się w prawdziwym projekcie!</h4></c:when>
+	<c:when test="${percent >= 60}">
+	<h4>Brawo! Całkiem niezły wynik!
+	Jeszcze trochę pracy i będziesz gotowy na Swoję pierwszą rozmowę kwalifikacyjną!</h4></c:when>
+	<c:otherwise>
+	<h4>Niestety, ale na dzień dzisiejszy Twoja wiedza nie wystarcza do 
+	rozpoczęcia swojej piewszej pracy w branży IT.
+	Głowa do góry i do roboty! Następnym razem na pewno będzie lepiej!</h4></c:otherwise>
 	</c:choose>
-	</br>
-	<a href="<c:url value='/start'/>">spróbuj ponownie</a>
+	</div>
 	</br>
 	
-	<div id="parentTable">
-		<div id="table1">
-			<table class="table">
+	</br>
+	
+
+		
+		<div class="container">
+			<table class="table table-striped">
 				<tr>
+				    <th>Kategoria:</th>
 					<th>Pytanie:</th>
 					<th>Prawidłowa odpowiedź:</th>
+					<th>Twoja odpowiedź:</th>
 				</tr>
 				<c:forEach items="${askedQuestions}" var="askedQuestion" varStatus="theCount">
 					<tr>
+					    <td>${askedQuestion.category}</td>
 						<td>${askedQuestion.quest}</td>
 						<td>${askedQuestion.rightAnswer}</td>
 						<td>${answers[theCount.index]}</td>
 					</tr>
 				</c:forEach>
 			</table>
-		</div>
-	<!-- 	<div id="table2">
-			<table class="table">
-				<tr>
-					<th>Twoja odpowiedź to:</th>
-				</tr>
-				<c:forEach items="${answers}" var="answer">
-					<tr>
-						<td>${answer}</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
-		 -->
 	</div>
+	</br>
+	<div><a type="button" class="btn btn-primary btn-lg" href="<c:url value='/start'/>">SPRÓBUJ PONOWNIE</a></div>
 </center>
+</div>
 </body>
 </html>

@@ -12,69 +12,103 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	crossorigin="anonymous">
-	 <meta name="viewport" content="width=device-width, initial-scale=1">
-	 <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>">
- 
-<title>Insert title here</title>
-</head>   
-<body class="bg white">
-<div class="container">
-<center>
-</br> 
-</br>
-	<h1><b>Podsumowanie</b></h1>
-	</br> 
-	<h2><span class="points">Twój wynik to: ${pointsScored} z ${questionNo}</span>
-	<span class="points">, co daje </span>
-	<span class="points">${percent}</span><span class="points">%</span></h2>
-	</br>
-	<div class="bigger">
-	<c:set var="percent" value="${percent}"/>
-	<c:choose>
-	<c:when test="${percent >= 75}">
-	<h4>Brawo! Osiągnąłeś doskonały rezultat!
-	Najwyższy czas na sprawdzenie się w prawdziwym projekcie!</h4></c:when>
-	<c:when test="${percent >= 60}">
-	<h4>Brawo! Całkiem niezły wynik!</br>
-	Jeszcze trochę pracy i będziesz gotowy na Swoję pierwszą rozmowę kwalifikacyjną!</h4></c:when>
-	<c:otherwise>
-	<h4>Niestety, ale na dzień dzisiejszy Twoja wiedza nie wystarcza do 
-	rozpoczęcia swojej piewszej pracy w branży IT.
-	Głowa do góry i do roboty! Następnym razem na pewno będzie lepiej!</h4></c:otherwise>
-	</c:choose>
-	</div>
-	</br>
-	
-	</br>
-	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/static/css/style.css"/>">
 
-		
-		<div class="container">
-			<table class="table table-striped">
-				<tr>
-				    <th>Kategoria:</th>
-					<th>Pytanie:</th>
-					<th>Prawidłowa odpowiedź:</th>
-					<th>Twoja odpowiedź:</th>
-				</tr>
-				<c:forEach items="${askedQuestions}" var="askedQuestion" varStatus="theCount">
+<title>Insert title here</title>
+</head>
+<body class="bg fontCol">
+
+	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+	<ul class="navbar-nav">
+		<li class="nav-item active">
+			<h4>
+				<a class="nav-link" href="<c:url value='/start'/>">Strona główna</a>
+			</h4>
+		</li>
+		<li class="nav-item active">
+			<h4>
+				<a class="nav-link" href="<c:url value='/user/top'/>">TOP 10</a>
+			</h4>
+		</li>
+		<li class="nav-item active">
+			<h4>
+				<a class="nav-link" href="#">Kontakt</a>
+			</h4>
+		</li>
+	</ul>
+	</nav>
+
+	<div class="container">
+
+		<center>
+			</br> </br>
+			<h1>
+				<b>Podsumowanie</b>
+			</h1>
+			</br>
+			<h2>
+				<span>Twój wynik to: ${pointsScored} z ${questionNo}</span> <span>,
+					co daje </span> <span>${percent}</span><span>%</span>
+			</h2>
+			</br>
+
+			<div class="bigger">
+
+				<c:set var="percent" value="${percent}" />
+
+				<c:choose>
+					<c:when test="${percent >= 75}">
+						<h4>Brawo! Osiągnąłeś doskonały rezultat! Najwyższy czas na
+							sprawdzenie się w prawdziwym projekcie!</h4>
+					</c:when>
+					<c:when test="${percent >= 60}">
+						<h4>
+							Brawo! Całkiem niezły wynik!</br> Jeszcze trochę pracy i będziesz
+							gotowy na Swoję pierwszą rozmowę kwalifikacyjną!
+						</h4>
+					</c:when>
+					<c:otherwise>
+						<h4>Niestety, ale na dzień dzisiejszy Twoja wiedza nie
+							wystarcza do rozpoczęcia swojej piewszej pracy w branży IT. Głowa
+							do góry i do roboty! Następnym razem na pewno będzie lepiej!</h4>
+					</c:otherwise>
+				</c:choose>
+			</div>
+			</br> </br>
+
+			<div class="container">
+				<table class="table table-striped">
 					<tr>
-					    <td>${askedQuestion.category}</td>
-						<td>${askedQuestion.quest}</td>
-						<td>${askedQuestion.rightAnswer}</td>
-						<td>${answers[theCount.index]}</td>
+						<th>Kategoria:</th>
+						<th>Pytanie:</th>
+						<th>Prawidłowa odpowiedź:</th>
+						<th>Twoja odpowiedź:</th>
 					</tr>
-				</c:forEach>
-			</table>
+					<c:forEach items="${askedQuestions}" var="askedQuestion"
+						varStatus="theCount">
+						<tr>
+							<td>${askedQuestion.category}</td>
+							<td>${askedQuestion.quest}</td>
+							<td>${askedQuestion.rightAnswer}</td>
+							<td>${answers[theCount.index]}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+			</br> </br>
+			<div>
+				<a type="button" class="btn btn-primary btn-lg"
+					href="<c:url value='/user/add/${pointsScored}'/>">ZAPISZ WYNIK</a>
+			</div>
+			</br> </br>
+			<div>
+				<a type="button" class="btn btn-primary btn-lg"
+					href="<c:url value='/start'/>">SPRÓBUJ PONOWNIE</a>
+			</div>
+			</br> </br> </br>
+		</center>
 	</div>
-	</br>
-	<div><a type="button" class="btn btn-primary btn-lg"
-	 href="<c:url value='/start'/>">SPRÓBUJ PONOWNIE</a></div>
-	<div><a type="button" class="btn btn-primary btn-lg"
-	 href="<c:url value='/user/add/${pointsScored}'/>">ZAPISZ WYNIK</a></div>
-</br>
-</br>
-</center>
-</div>
 </body>
 </html>

@@ -9,7 +9,7 @@ import pl.coderslab.entity.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
 	List<User> findByOrderByPointsScoredDesc();
-	List<User> findFirst20ByOrderByPointsScoredDesc();
+	List<User> findFirst10ByOrderByPointsScoredDesc();
 	List<User> findByName(String name);
 	int countByPointsScoredGreaterThan(double pointsScored);
 }

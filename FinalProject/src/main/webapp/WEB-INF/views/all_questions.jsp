@@ -15,7 +15,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="<c:url value='/question/add'/>">ADD QUESTION</a>
+</br>
+	<h3><a href="<c:url value='/question/add'/>">ADD QUESTION</a></h3>
+	</br>
 	<h3>Question's list</h3>
 	<table class="table table-bordered">
 		<tr>
@@ -40,9 +42,7 @@
 			<tr>
 				<td><a href="<c:url value="/question/del/${question.id}/"/>">DELETE</a></td>
 			</tr>
-			<tr>
-				<td><a href="<c:url value="/question/edit/${question.id}/"/>">EDIT</a></td>
-			</tr>
+			
 		</c:forEach>
 	</table>
 

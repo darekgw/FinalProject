@@ -1,4 +1,4 @@
-.white {
+.fontCol {
 	color: black;
 }
 
@@ -6,9 +6,8 @@
 	font-size: 20px;
 }
 
-.points {
-	color: red;
-	font-weight: bold;
+.biggest {
+	font-size: 25px;
 }
 
 .nav-item {
@@ -16,27 +15,26 @@
 }
 
 .radio {
-	font-size:30px;
+	font-size: 30px;
 }
 
 .bgColor {
-    background-color: LightSkyBlue;
+	background-color: LightSkyBlue;
 }
 
 body, html {
-    height: 100%;
+	height: 100%;
 }
 
-.bg { 
-    /* The image used */
-    background-image: url("../img/stock-photo-65580763-light-blue-gradient-abstract-background.jpg");
-
-    /* Full height */
-    height: 100%; 
-     background-attachment: fixed;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+.bg {
+	/* The image used */
+	background-image:
+		url("../img/stock-photo-65580763-light-blue-gradient-abstract-background.jpg");
+	/* Full height */
+	height: 100%;
+	background-attachment: fixed;
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }

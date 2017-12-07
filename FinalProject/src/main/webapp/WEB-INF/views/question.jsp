@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@	page isELIgnored="false"%>
 <%@	taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -12,49 +12,75 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	crossorigin="anonymous">
-	 <meta name="viewport" content="width=device-width, initial-scale=1">
-	 <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/static/css/style.css"/>">
 <title>Insert title here</title>
 </head>
-<body class="bg white">
+<body class="bg fontCol">
 
-<center>
-</br>
-<h1><b>Test wiedzy - Junior Java Developer</b></h1>
-</br>
-<h3><b>Pytanie ${questionNo + 1}</b></h3>
-</br>
-<h3><b>Kategoria: ${question.category}</b></h3>
-</br>
+	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+	<ul class="navbar-nav">
+		<li class="nav-item active">
+			<h4>
+				<a class="nav-link" href="<c:url value='/start'/>">Strona główna</a>
+			</h4>
+		</li>
+		<li class="nav-item active">
+			<h4>
+				<a class="nav-link" href="<c:url value='/user/top'/>">TOP 10</a>
+			</h4>
+		</li>
+		<li class="nav-item active">
+			<h4>
+				<a class="nav-link" href="#">Kontakt</a>
+			</h4>
+		</li>
+	</ul>
+	</nav>
 
-<h3><b>${question.quest}</b></h3>
-</br>
+	<center>
+		</br>
+		<h2>
+			<b>Test wiedzy - Junior Java Developer</b>
+		</h2>
+		</br>
+		<h4>
+			<b>Pytanie ${questionNo + 1}</b>
+		</h4>
+		</br>
+		<h4>
+			<b>Kategoria: ${question.category}</b>
+		</h4>
+		</br>
 
-</center>
-<div class="row">
-  <div class="col-xl-3"></div>
-  <div class="col-xl-6 form">
-  
+		<h4>
+			<b>${question.quest}</b>
+		</h4>
+		</br>
 
-<form method="post">
-<input type="hidden" name="id" value="${question.id}">
-<label><input type="radio" name="answer" value="${question.answer1}">
-<span style="font-size:28px"> ${question.answer1}</span></label>
-</br>
-<label><input type="radio" name="answer" value="${question.answer2}">
-<span style="font-size:28px"> ${question.answer2}</span></label>
-</br>
-<label><input type="radio" name="answer" value="${question.answer3}">
-<span style="font-size:28px"> ${question.answer3}</span></label>
-</br>
-</br>
-<center>
-<input class="btn btn-primary btn-lg"	type="submit"	value="Następne pytanie">
-</center>
-</form>
-</div>
-<div class="class="col-xl-3""></div>
-</div>
+	</center>
+	<div class="row">
+		<div class="col-xl-3"></div>
+		<div class="col-xl-6 form">
+
+
+			<form method="post">
+				<input type="hidden" name="id" value="${question.id}"> <label><input
+					type="radio" name="answer" value="${question.answer1}"> <span
+					style="font-size: 25px"> ${question.answer1}</span></label> </br> <label><input
+					type="radio" name="answer" value="${question.answer2}"> <span
+					style="font-size: 25px"> ${question.answer2}</span></label> </br> <label><input
+					type="radio" name="answer" value="${question.answer3}"> <span
+					style="font-size: 25px"> ${question.answer3}</span></label> </br> </br>
+				<center>
+					<input class="btn btn-primary btn-lg" type="submit"
+						value="Następne pytanie">
+				</center>
+			</form>
+		</div>
+		<div class="class="col-xl-3""></div>
+	</div>
 
 </body>
 </html>

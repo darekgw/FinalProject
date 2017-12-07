@@ -19,7 +19,7 @@ public class UserController {
 
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@GetMapping("/user/add/{pointsScored}")
 	public String addUser(Model model, @PathVariable double pointsScored) {
 		User user = new User();
@@ -27,7 +27,7 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "add_user";
 	}
-	
+
 	@PostMapping("/user/add/{pointsScored}")
 	public String addUserToBase(Model model, @ModelAttribute User user) {
 		userRepository.save(user);
@@ -39,23 +39,23 @@ public class UserController {
 		model.addAttribute("userSize", userSize);
 		return "show_user";
 	}
-	
+
 	@RequestMapping("/user/top")
 	public String topList(Model model) {
-		
-		List<User> top = userRepository.findFirst20ByOrderByPointsScoredDesc();
+
+		List<User> top = userRepository.findFirst10ByOrderByPointsScoredDesc();
 		model.addAttribute("top", top);
-		
+
 		return "top";
 	}
-	
+
 	@RequestMapping("/user/name/{name}")
 	public String yourResult(Model model, @PathVariable(required=false) String name) {
-		
+
 		List<User> yourResult = userRepository.findByName(name);
 		model.addAttribute("yourResult", yourResult);
-		
+
 		return "your_result";
 	}
-	
+
 }

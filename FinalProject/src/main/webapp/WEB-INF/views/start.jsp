@@ -18,19 +18,31 @@
 
 </style>
 </head>
-<body>
+<body class="bg">
+<!--  <body style="background-image: url(<c:url value="static/img/pexels-photo-93405.jpeg"/>)"> -->
 
-<nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item active">
-      <h2 class="nav-item"></h2>
+      <h2><a class="nav-link" href="<c:url value='/start'/>">Strona główna</a></h2>
+    </li>
+     <li class="nav-item active">
+      <h2><a class="nav-link" href="<c:url value='/user/top'/>">TOP 20</a></h2>
+    </li>
+    <li class="nav-item active">
+      <h2>
+      
+      </h2>
     </li>
   </ul>
 </nav>
-</br>
-</br>
 
-<div class="jumbotron">
+
+<div class="container">
+</br>
+</br>
+</br>
+</br>
 <h1 ><b>Witaj na stronie testu wiedzy języka Java!</b></h1>
 </br>
 </br>

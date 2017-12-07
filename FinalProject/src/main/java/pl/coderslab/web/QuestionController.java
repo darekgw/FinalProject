@@ -53,7 +53,7 @@ public class QuestionController {
 		sess.removeAttribute("askedQuestions");
 		sess.removeAttribute("answers");
 		
-		noOfQuestions = 20 ;
+		noOfQuestions = 3 ;
 		noOfQuestionsInBase = questionRepository.count();
 		if (noOfQuestions > noOfQuestionsInBase) {
 			noOfQuestions = noOfQuestionsInBase;

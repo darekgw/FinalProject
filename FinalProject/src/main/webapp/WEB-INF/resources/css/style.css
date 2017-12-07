@@ -1,3 +1,7 @@
+.white {
+	color: black;
+}
+
 .bigger {
 	font-size: 20px;
 }
@@ -17,4 +21,22 @@
 
 .bgColor {
     background-color: LightSkyBlue;
+}
+
+body, html {
+    height: 100%;
+}
+
+.bg { 
+    /* The image used */
+    background-image: url("../img/stock-photo-65580763-light-blue-gradient-abstract-background.jpg");
+
+    /* Full height */
+    height: 100%; 
+     background-attachment: fixed;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }

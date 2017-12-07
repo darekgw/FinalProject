@@ -16,7 +16,7 @@
 	 <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="bg white">
 
 <center>
 </br>
@@ -49,7 +49,7 @@
 </br>
 </br>
 <center>
-<input	type="submit"	value="Następne pytanie">
+<input class="btn btn-primary btn-lg"	type="submit"	value="Następne pytanie">
 </center>
 </form>
 </div>

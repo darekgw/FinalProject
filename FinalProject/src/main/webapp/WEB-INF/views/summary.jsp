@@ -16,26 +16,26 @@
 	 <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>">
  
 <title>Insert title here</title>
-</head>
-<body>
+</head>   
+<body class="bg white">
 <div class="container">
 <center>
 </br> 
 </br>
 	<h1><b>Podsumowanie</b></h1>
 	</br> 
-	<h2><span class="points">Twój wynik to: ${pointsScored} z ${questionNo}</span><span>, co daje </span>
-	<span>${percent}</span><span>%</span></h2>
-	</br>
+	<h2><span class="points">Twój wynik to: ${pointsScored} z ${questionNo}</span>
+	<span class="points">, co daje </span>
+	<span class="points">${percent}</span><span class="points">%</span></h2>
 	</br>
 	<div class="bigger">
 	<c:set var="percent" value="${percent}"/>
 	<c:choose>
 	<c:when test="${percent >= 75}">
-	<h4>Brawo! Osiągnąłeś doskonały wynik!
+	<h4>Brawo! Osiągnąłeś doskonały rezultat!
 	Najwyższy czas na sprawdzenie się w prawdziwym projekcie!</h4></c:when>
 	<c:when test="${percent >= 60}">
-	<h4>Brawo! Całkiem niezły wynik!
+	<h4>Brawo! Całkiem niezły wynik!</br>
 	Jeszcze trochę pracy i będziesz gotowy na Swoję pierwszą rozmowę kwalifikacyjną!</h4></c:when>
 	<c:otherwise>
 	<h4>Niestety, ale na dzień dzisiejszy Twoja wiedza nie wystarcza do 
@@ -68,7 +68,12 @@
 			</table>
 	</div>
 	</br>
-	<div><a type="button" class="btn btn-primary btn-lg" href="<c:url value='/start'/>">SPRÓBUJ PONOWNIE</a></div>
+	<div><a type="button" class="btn btn-primary btn-lg"
+	 href="<c:url value='/start'/>">SPRÓBUJ PONOWNIE</a></div>
+	<div><a type="button" class="btn btn-primary btn-lg"
+	 href="<c:url value='/user/add/${pointsScored}'/>">ZAPISZ WYNIK</a></div>
+</br>
+</br>
 </center>
 </div>
 </body>
